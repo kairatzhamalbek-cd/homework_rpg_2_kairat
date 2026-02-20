@@ -1,4 +1,5 @@
 package com.narxoz.rpg.prototype;
+
 import com.narxoz.rpg.enemy.Enemy;
 
 import java.util.Collections;
@@ -6,20 +7,27 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+
 public class EnemyRegistry {
-    private final Map<String, Enemy> prototypes = new HashMap<>();
-    public void registerPrototype(String key, Enemy prototype) {
-        if (key == null || key.isBlank() || prototype == null) return;
-        prototypes.put(key, prototype);
+
+    private final Map<String, Enemy> templates = new HashMap<>();
+
+    public void registerTemplate(String key, Enemy template) {
+        if (key == null || key.isBlank() || template == null) return;
+        templates.put(key, template);
     }
-    public Enemy createEnemy(String key) {
-        Enemy proto = prototypes.get(key);
+
+    public Enemy createFromTemplate(String key) {
+        Enemy proto = templates.get(key);
         if (proto == null) return null;
-        return proto.clone();}
-    public Set<String> getRegisteredKeys() {
-        return Collections.unmodifiableSet(prototypes.keySet());
+        return proto.clone();
     }
-    public Map<String, Enemy> getPrototypesView() {
-        return Collections.unmodifiableMap(prototypes);
+
+    public Set<String> listTemplates() {
+        return Collections.unmodifiableSet(templates.keySet());
+    }
+
+    public Map<String, Enemy> viewTemplates() {
+        return Collections.unmodifiableMap(templates);
     }
 }

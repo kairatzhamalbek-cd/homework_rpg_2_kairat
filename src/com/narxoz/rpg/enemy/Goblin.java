@@ -80,16 +80,20 @@ public class Goblin implements Enemy {
         System.out.println("=== " + name + " (Goblin) ===");
         System.out.println("Health: " + health + " | Damage: " + damage
                 + " | Defense: " + defense + " | Speed: " + speed);
-        System.out.println("Element" + element + " | AI: " + aiBehavior);
-        System.out.println("Abilities: " + abilities.size()+" ):");
-        for (Ability a: abilities){
-            System.out.println(" - " + a.getName() + " | dmg=" + a.getDamage()+" | " + a.getDescription());
+        System.out.println("Element: " + element + " | AI: " + aiBehavior);
+
+        System.out.println("Abilities (" + abilities.size() + "):");
+        for (Ability a : abilities) {
+            System.out.println("  - " + a.getName() + " | dmg=" + a.getDamage()
+                    + " | " + a.getDescription());
         }
 
-        if(lootTable == null){
+        if (lootTable == null) {
             System.out.println("Loot: (none)");
         } else {
-            System.out.println("Loot: "+ lootTable.getItems() + " | Gold: " + lootTable.getGoldDrop()+ " | XP " + lootTable.getExperienceDrop());
+            System.out.println("Loot: " + lootTable.getItems()
+                    + " | Gold: " + lootTable.getGoldDrop()
+                    + " | XP: " + lootTable.getExperienceDrop());
         }
     }
 

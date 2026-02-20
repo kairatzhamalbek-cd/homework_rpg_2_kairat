@@ -12,6 +12,6 @@ public class Vanish implements Ability {
 
     @Override
     public Ability clone(){
-        return new Vanish;
+        return new Vanish();
     }
 }
